@@ -1,9 +1,9 @@
-import DynamicForm from '../components/features/DynamicForm'
-import DataGrid from '../components/features/DataGrid'
-import { appDetails } from '../constants/appDetails'
-import { saveData } from '../services/apiServices'
-import SignIn from './sign-in'
-import TestPage from './TestPage'
+// import DynamicForm from '../components/features/DynamicForm'
+// import DataGrid from '../components/features/DataGrid'
+// import { appDetails } from '../constants/appDetails'
+// import { saveData } from '../services/apiServices'
+// import SignIn from './sign-in'
+// import TestPage from './TestPage'
 import Hero from '../components/Hero'
 
 export default function Home() {

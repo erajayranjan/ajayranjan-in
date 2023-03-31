@@ -1,12 +1,16 @@
+import { redirect } from 'next/dist/server/api-utils'
+import Link from 'next/link'
+import { Router } from 'next/router'
 import React, { useEffect, useState } from 'react'
 import { saveData } from '../services/apiServices'
 import DynamicForm from './features/DynamicForm'
 import Button from './utilities/Button'
 import Message from './utilities/Message'
-import Spinner from './utilities/Spinner'
+// import Spinner from './utilities/Spinner'
 
 const ContactForm = () => {
     const [loading, setloading] = useState(false)
+    var ResponseMessage=false;
     const formData={
         title:"Get in touch",
         // formLogo:"FORM_LOGO",
@@ -46,8 +50,8 @@ const ContactForm = () => {
 
     const onSubmit=async(data) => { 
         setloading(true)
-        console.log(data);
-        const res = await saveData("/userQuery/add-userQuery", data)
+        // console.log(data);
+        const res = await saveData("/userQuery/add-guestQuery", data)
         if(res){
             Message.success(res.response?.data?.error || res.data?.message)
         }
@@ -65,6 +69,11 @@ const ContactForm = () => {
     
   return (
     <div>
+        {
+            ResponseMessage ?
+            <ResponseMessage />
+            : ""
+        }
         <DynamicForm formData={formData} onSubmit={onSubmit} loading={loading} defaultFieldValues={defaultFieldValues} />
     </div>
   )

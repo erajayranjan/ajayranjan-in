@@ -16,7 +16,12 @@ const handleSubmit=async(evt) => {
     // formData.formFields.forEach(e=>setFormInputs({...formInputs, [e.name]:data.get(e.name)}))
     // console.log( formInputs );
     const res= await onSubmit(formInputs);
-    res && res.status && console.log(res)
+    if(res && res.status){
+        setTimeout(() => {
+            setFormInputs({})
+        }, 5000);
+        // console.log(res)
+    }
  }
 
  const handleCancel=() => { 
@@ -28,7 +33,7 @@ const handleSubmit=async(evt) => {
     // const data=new Form
      let {name, value, type, required, checked}=evt.target;
      value=type==="checkbox" ? checked : value;
-     console.log("index>>>",index, "formInputs>>", formInputs )
+    //  console.log("index>>>",index, "formInputs>>", formInputs )
      parent ?  
         setFormInputs(
         {...formInputs, 
